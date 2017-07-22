@@ -45,15 +45,13 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Deals</a></li>
-        <li><a href="#">Stores</a></li>
-        <li><a href="#">Contact</a></li>
+        <li class="active"><a href="#">inicio</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Contacto</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> su cuenta</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a></li>
       </ul>
     </div>
   </div>
@@ -91,10 +89,10 @@ while($arreglo = mysqli_fetch_array($sql)){
 <br><br>
 
 <footer class="container-fluid text-center">
-  <p>Online Store Copyright</p>  
+  <p>Carrito Copyleft</p>  
   <form class="form-inline">Get deals:
     <input type="email" class="form-control" size="50" placeholder="Email Address">
-    <button type="button" class="btn btn-danger">Sign Up</button>
+    <button type="button" class="btn btn-danger">Iniciar sesion</button>
   </form>
 </footer>
 <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
