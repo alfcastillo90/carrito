@@ -109,6 +109,7 @@
     		console.log(id);
     		$("#id-producto").val(id);
     		$("#producto-modal").modal();
+    		$("#nombre-producto").text($("#"+id+" .panel-heading").text());
 
     	}
 
