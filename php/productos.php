@@ -6,18 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
   <style>
-    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
     .navbar {
       margin-bottom: 50px;
       border-radius: 0;
     }
-    
-    /* Remove the jumbotron's default bottom margin */ 
      .jumbotron {
       margin-bottom: 0;
     }
-   
-    /* Add a gray background color and some padding to the footer */
     footer {
       background-color: #f2f2f2;
       padding: 25px;
@@ -90,9 +85,9 @@ while($arreglo = mysqli_fetch_array($sql)){
 
 <footer class="container-fluid text-center">
   <p>Carrito Copyleft</p>  
-  <form class="form-inline">Get deals:
+  <form class="form-inline">Recibe ofertas:
     <input type="email" class="form-control" size="50" placeholder="Email Address">
-    <button type="button" class="btn btn-danger">Iniciar sesion</button>
+    <button type="button" class="btn btn-danger">Suscribete</button>
   </form>
 </footer>
 <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
