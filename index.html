@@ -134,28 +134,28 @@
           <form action="#">
             <div class="form-group">
               <label><b>Nombres</b></label>
-              <input class="form-control" type="text" placeholder="Enter Email" name="nombres" required>
+              <input class="form-control" type="text" placeholder="Ingrese sus nombres" id="nombres" name="nombres" required>
             </div>
             <div class="form-group">
               <label><b>Apellidos</b></label>
-              <input class="form-control" type="text" placeholder="Enter Email" name="apellidos" required>
+              <input class="form-control" type="text" placeholder="Ingrese sus apellidos" id="apellidos" name="apellidos" required>
             </div>
             <div class="form-group">
               <label><b>Email</b></label>
-              <input class="form-control" type="text" placeholder="Enter Email" name="email" required>
+              <input class="form-control" type="text" placeholder="Ingrese su Email" id="email" name="email" required>
             </div>
             <div class="form-group">
               <label><b>Contrase&ntilde;a</b></label>
-              <input class="form-control" type="password" placeholder="Enter Password" name="clave" required>
+              <input class="form-control" type="password" placeholder="Ingrese su clave" id="clave" name="clave" required>
             </div>
             <div class="form-group">
               <label><b>Repetir Contrase&ntilde;a</b></label>
-              <input class="form-control" type="password" placeholder="Repeat Password" name="repetir-clave" required>
+              <input class="form-control" type="password" placeholder="Repita su clave" id="repetir-clave" name="repetir-clave" required>
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Crear cuenta</button>
+          <button type="button" class="btn btn-success" onclick="registrodeUsuarios()">Crear cuenta</button>
           <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
@@ -191,5 +191,15 @@
   </footer>
   <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript">
+    function registrodeUsuarios(){
+      var nombre = $("#nombres").val();
+      var apellido = $("#apellidos").val();
+      var email = $("#email").val();
+      var clave = $("#clave").val();
+      var repetir = $("#repetir").val();
+      console.log(nombre);
+    }
+  </script>
 </body>
 </html>
