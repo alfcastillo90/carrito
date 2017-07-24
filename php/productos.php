@@ -31,7 +31,7 @@
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>                        
+					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#">Logo</a>
 			</div>
@@ -48,9 +48,9 @@
 			</div>
 		</div>
 	</nav>
-	<div class="container">    
+	<div class="container">
 	  <div class="row">
-			<?php 
+			<?php
 				include "conexion.php";
 				$query = "SELECT * FROM articulos";
 
@@ -71,12 +71,12 @@
 				    </div>';
 
 				}
-			?>    
+			?>
 	  </div>
 	</div>
 	<br><br>
 	<footer class="container-fluid text-center">
-		<p>Carrito Copyleft</p>  
+		<p>Carrito Copyleft</p>
 		<form class="form-inline">Recibe ofertas:
 			<input type="email" class="form-control" size="50" placeholder="Email Address">
 			<button type="button" class="btn btn-danger">Suscribete</button>
@@ -94,7 +94,7 @@
 	              	<p>aqui van los detalles del producto</p>
 	            	<img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
 	            	<span id="nombre-producto"></span>
-	              
+
 	            </div>
 	             <div class="modal-footer">
 	                <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Cerrar</button>
@@ -110,11 +110,10 @@
     		$("#id-producto").val(id);
     		$("#producto-modal").modal();
     		$("#nombre-producto").text($("#"+id+" .panel-heading").text());
-
     	}
 
     	function agregarCantidad(cantidad,idProducto){
-    	
+
     		var cantidades = [];
     		var infoProductos = {
     			"cantidad":cantidad,

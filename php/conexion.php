@@ -1,8 +1,8 @@
-<?php 
+<?php
 $servername = "localhost";
 $username = "root";
-$password = "";
-$database = "facturacion_diana_corregida";
+$password = "1234";
+$database = "carrito";
 
 $conexion = mysqli_connect($servername,$username,$password,$database);
 

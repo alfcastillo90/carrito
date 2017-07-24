@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Carrito de compra</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+<body>
+  <!-- Button to open the modal -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-registro">Crear una cuenta</button>
+  <!-- The Modal (contains the Sign Up form) -->
+  <div id="modal-registro" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header"></div>
+        <div class="modal-body">
+          <form action="#">
+            <div class="form-group">
+              <label><b>Email</b></label>
+              <input class="form-control" type="text" placeholder="Enter Email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label><b>Password</b></label>
+              <input class="form-control" type="password" placeholder="Enter Password" name="psw" required>
+              <label><b>Repeat Password</b></label>
+              <input class="form-control" type="password" placeholder="Repeat Password" name="psw-repeat" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="signupbtn">Crear cuenta</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+</body>
+</html>
