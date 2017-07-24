@@ -5,20 +5,45 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <style>
+ .bg-1 {
+     background-color: #1abc9c; /* Green */
+     color: #ffffff;
+ }
+ .bg-2 {
+     background-color: #474e5d; /* Dark Blue */
+     color: #ffffff;
+ }
+ .bg-3 {
+     background-color: #ffffff; /* White */
+     color: #555555;
+ }
+ .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+ </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container-fluid" style="background-color: #232f3e;color: #f6f6f6">
     <div class="row">
-      <div class="col-md-12" style="background-color: #232f3e;color: #f6f6f6">
-        <div class="text-center">
-          <img class="img-circle" alt="shopping" src="http://images.huffingtonpost.com/2016-05-27-1464347371-2400764-tshirtstoreecommerce.jpg" style="width: 30%;"/>
+      <div class="col-md-12 text-center">
+          <img class="img-responsive img-circle" alt="shopping" src="http://images.huffingtonpost.com/2016-05-27-1464347371-2400764-tshirtstoreecommerce.jpg" style="margin-left:33vw; width: 30%;"/>
           <h3>Carrito de compra</h1>
           <p>Registro de usuario, inicio de sesi&oacute;n, catalogo de productos, agregar producto al carrito y comprar</p>
-        </div>
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-registro">Crear una cuenta</button>
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-login">Iniciar sesi&oacute;n</button>
       </div>
     </div>
+  </div>
+  <div class="container-fluid bg-3 text-center">
+    <h3>Que tiene este proyecto</h3>
+    <p>Formulario de inicio de sesion, registro de usuario, catalogo de productos, agregar producto al carrito, comprar productos</p>
+  </div>
+
+  <div class="container-fluid bg-1 text-center">
+    <h3>Porque deberia bajar el codigo de este proyecto?</h3>
+    <p>Para comprender como se pueden realizar a una base de datos a traves de un formulario, tambien para comenzar a comprender el uso de las variables de sesi&oacute;n y el proceso de autentificaci&oacute;n  en un sistema hecho con php, mysql, bootstrap, html5 y jquery</p>
   </div>
   <!-- Button to open the modal -->
   <!-- The Modal (contains the Sign Up form) -->
