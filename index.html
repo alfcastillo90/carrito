@@ -17,20 +17,56 @@
         <div class="modal-body">
           <form action="#">
             <div class="form-group">
+              <label><b>Nombres</b></label>
+              <input class="form-control" type="text" placeholder="Enter Email" name="nombres" required>
+            </div>
+            <div class="form-group">
+              <label><b>Apellidos</b></label>
+              <input class="form-control" type="text" placeholder="Enter Email" name="apellidos" required>
+            </div>
+            <div class="form-group">
               <label><b>Email</b></label>
               <input class="form-control" type="text" placeholder="Enter Email" name="email" required>
             </div>
             <div class="form-group">
-              <label><b>Password</b></label>
-              <input class="form-control" type="password" placeholder="Enter Password" name="psw" required>
-              <label><b>Repeat Password</b></label>
-              <input class="form-control" type="password" placeholder="Repeat Password" name="psw-repeat" required>
+              <label><b>Contrase&ntilde;a</b></label>
+              <input class="form-control" type="password" placeholder="Enter Password" name="clave" required>
+            </div>
+            <div class="form-group">
+              <label><b>Repetir Contrase&ntilde;a</b></label>
+              <input class="form-control" type="password" placeholder="Repeat Password" name="repetir-clave" required>
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="signupbtn">Crear cuenta</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-success">Crear cuenta</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Button to open the modal -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-login">Iniciar sesi&oacute;n</button>
+  <!-- The Modal (contains the Sign Up form) -->
+  <div id="modal-login" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header"></div>
+        <div class="modal-body">
+          <form action="#">
+            <div class="form-group">
+              <label><b>Email</b></label>
+              <input class="form-control" type="text" placeholder="Enter Email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label><b>Contrase&ntilde;a</b></label>
+              <input class="form-control" type="password" placeholder="Enter Password" name="clave" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Iniciar sesi&oacute;n</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
