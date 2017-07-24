@@ -35,6 +35,10 @@
 .navbar-nav li a:hover {
     color: #1abc9c !important;
 }
+.bg-4 {
+   background-color: #2f2f2f;
+   color: #ffffff;
+}
  </style>
 </head>
 <body>
@@ -50,14 +54,14 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Que contiene?</a></li>
-      <li><a href="#">Porque verlo?</a></li>
+      <li><a href="#div-1">Inicio</a></li>
+      <li><a href="#div-2">Que contiene?</a></li>
+      <li><a href="#div-3">Porque verlo?</a></li>
       </ul>
     </div>
     </div>
   </nav>
-  <div class="container-fluid" style="background-color: #232f3e;color: #f6f6f6">
+  <div class="container-fluid" id="div-1" style="background-color: #232f3e;color: #f6f6f6">
     <div class="row">
       <div class="col-md-12 text-center">
           <img class="img-responsive img-circle" alt="shopping" src="http://images.huffingtonpost.com/2016-05-27-1464347371-2400764-tshirtstoreecommerce.jpg" style="margin-left:33vw; width: 30%;"/>
@@ -68,7 +72,7 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid bg-3 text-center">
+  <div id="div-2" class="container-fluid bg-3 text-center">
     <h3>¿Que tiene este proyecto?</h3>
     <p>Formulario de inicio de sesion, registro de usuario, catalogo de productos, agregar producto al carrito, comprar productos</p>
     <a href="https://www.linkedin.com/in/alfcastillo/" class="btn btn-default btn-lg">
@@ -76,9 +80,42 @@
     </a>
   </div>
 
-  <div class="container-fluid bg-1 text-center">
+  <div id="div-3" class="container-fluid bg-1 text-center">
     <h3>Porque deberia bajar el codigo de este proyecto?</h3>
     <p>Para comprender como se pueden realizar a una base de datos a traves de un formulario, tambien para comenzar a comprender el uso de las variables de sesi&oacute;n y el proceso de autentificaci&oacute;n  en un sistema hecho con php, mysql, bootstrap, html5 y jquery</p>
+    <h3>Referencias</h3>
+    <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <a href="https://www.w3schools.com" class="btn btn-default btn-lg">
+        w3Schools
+      </a>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <a href="https://www.getbootstrap.com" class="btn btn-default btn-lg">
+        Bootstrap
+      </a>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <a href="https://www.php.net" class="btn btn-default btn-lg">
+        Php
+      </a>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <a href="https://www.jquery.com" class="btn btn-default btn-lg">
+        Jquery
+      </a>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <a href=" https://developer.mozilla.org/" class="btn btn-default btn-lg">
+        Mozilla developer network
+      </a>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <a href=" https://stackoverflow.com/" class="btn btn-default btn-lg">
+        Stackoverflow
+      </a>
+    </div>
+  </div>
   </div>
   <!-- Button to open the modal -->
   <!-- The Modal (contains the Sign Up form) -->
@@ -142,6 +179,9 @@
       </div>
     </div>
   </div>
+  <footer class="container-fluid bg-4 text-center">
+    <p>Desarrollado por <a href="https://www.linkedin.com/in/alfcastillo/">Carlos Alfredo Castillo Rodr&iacutel;guez</a></p>
+  </footer>
   <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
