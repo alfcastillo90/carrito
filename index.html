@@ -129,35 +129,35 @@
   <div id="modal-registro" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header"></div>
-        <div class="modal-body">
-          <form action="#">
-            <div class="form-group">
-              <label><b>Nombres</b></label>
-              <input class="form-control" type="text" placeholder="Ingrese sus nombres" id="nombres" name="nombres" required>
-            </div>
-            <div class="form-group">
-              <label><b>Apellidos</b></label>
-              <input class="form-control" type="text" placeholder="Ingrese sus apellidos" id="apellidos" name="apellidos" required>
-            </div>
-            <div class="form-group">
-              <label><b>Email</b></label>
-              <input class="form-control" type="text" placeholder="Ingrese su Email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-              <label><b>Contrase&ntilde;a</b></label>
-              <input class="form-control" type="password" placeholder="Ingrese su clave" id="clave" name="clave" required>
-            </div>
-            <div class="form-group">
-              <label><b>Repetir Contrase&ntilde;a</b></label>
-              <input class="form-control" type="password" placeholder="Repita su clave" id="repetir-clave" name="repetir-clave" required>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success" onclick="registrodeUsuarios()">Crear cuenta</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-        </div>
+        <form method="post" onsubmit="registrodeUsuarios()">
+          <div class="modal-header"></div>
+          <div class="modal-body">
+              <div class="form-group">
+                <label><b>Nombres</b></label>
+                <input class="form-control" type="text" placeholder="Ingrese sus nombres" id="nombres" name="nombres" required>
+              </div>
+              <div class="form-group">
+                <label><b>Apellidos</b></label>
+                <input class="form-control" type="text" placeholder="Ingrese sus apellidos" id="apellidos" name="apellidos" required>
+              </div>
+              <div class="form-group">
+                <label><b>Email</b></label>
+                <input class="form-control" type="text" placeholder="Ingrese su Email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label><b>Contrase&ntilde;a</b></label>
+                <input class="form-control" type="password" placeholder="Ingrese su clave" id="clave" name="clave" required>
+              </div>
+              <div class="form-group">
+                <label><b>Repetir Contrase&ntilde;a</b></label>
+                <input class="form-control" type="password" placeholder="Repita su clave" id="repetir-clave" name="repetir-clave" required>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Crear cuenta</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -166,6 +166,7 @@
   <div id="modal-login" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
+        <form action="#">
         <div class="modal-header"></div>
         <div class="modal-body">
           <form action="#">
@@ -177,12 +178,12 @@
               <label><b>Contrase&ntilde;a</b></label>
               <input class="form-control" type="password" placeholder="Ingrese su clave" name="clave" required>
             </div>
-          </form>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-success">Iniciar sesi&oacute;n</button>
           <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
         </div>
+      </form>
       </div>
     </div>
   </div>
@@ -197,8 +198,23 @@
       var apellido = $("#apellidos").val();
       var email = $("#email").val();
       var clave = $("#clave").val();
-      var repetir = $("#repetir").val();
-      console.log(nombre);
+      var repetir = $("#repetir-clave").val();
+      if(clave!=repetir){
+        alert("Las claves no coinciden");
+        $("#clave").css("border","2px solid red");
+        $("#repetir-clave").css("border","2px solid red");
+        return false;
+      }
+      else{
+        $.ajax({
+          data:{"nombre":nombre,"apellido":apellido,"clave":clave,"email":email}
+          method:"post",
+          url:"php/usuarios.php",
+          success:function(data){
+            alert("registro exitoso");
+          }
+        });
+      }
     }
   </script>
 </body>
