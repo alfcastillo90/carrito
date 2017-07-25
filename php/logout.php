@@ -10,7 +10,7 @@ session_destroy();
 //Cerramos la conexión con la base de datos
 mysqli_close($conexion);
 //Redireccionamos a el index
-header("Location: ../index.php");
+header("Location: ../");
 die();
 ?>
 <!DOCTYPE html>
