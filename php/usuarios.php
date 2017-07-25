@@ -2,6 +2,8 @@
 include "conexion.php";
 $accion=$_POST["accion"];
 $clave=  htmlspecialchars(mysqli_real_escape_string($conexion,$_POST["clave"]);
+$maxCaracteresUsername = "20";
+$maxCaracteresPassword = "60";
 $username =  htmlspecialchars(mysqli_real_escape_string($conexion,$_POST["username"]);
 if(isset($_POST["apellido"])){
   $nombre =  htmlspecialchars(mysqli_real_escape_string($conexion,$_POST["apellido"]);
@@ -14,10 +16,10 @@ if(isset($_POST["nombre"])){
 }
 switch ($accion) {
   case 'login':
-    iniciodeSesion($clave,$conexion,$username);
+    iniciodeSesion($clave,$conexion,$maxCaracteresPassword,$maxCaracteresUsername,$username);
     break;
   case 'registro':
-    registrodeUsuarios($apellido,$clave,$conexion,$email,$nombre,$username);
+    registrodeUsuarios($apellido,$clave,$conexion,$email,$maxCaracteresPassword,$maxCaracteresUsername,$nombre,$username);
     break;
 }
 
@@ -28,11 +30,27 @@ function aleatoriedad() {
 			$nueva_clave .= $caracteres[rand(5,35)];
 		};
 		return $nueva_clave;
-	}
+}
+
+function iniciodeSesion($clave,$conexion,$username){
+  $query = "SELECT * FROM usuarios WHERE clave='$clave' AND username = '$username'";
+  $sql = mysqli_query($conexion,$query);
+
+  if(mysqli_num_rows($sql)>0){
+    $resultado = mysqli_fetch_array($sql);
+    session_start();
+    $_SESSION["username"] = $resultado["username"];
+    $_SESSION['estado'] = 'Autenticado';
+    return json_encode(array("result"=>true,"message"=>"bienvenido");
+  }
+  else{
+    return json_encode(array("result"=>false,"message"=>"los datos son incorrectos");
+  }
+
+}
 
 function registrodeUsuarios($apellido,$clave,$conexion,$email,$nombre,$username){
-  $maxCaracteresUsername = "20";
-  $maxCaracteresPassword = "60";
+
   //Si los input son de mayor tamaño, se "muere" el resto del código y muestra la respuesta correspondiente
   if(strlen($username) > $maxCaracteresUsername) {
     return json_encode(array("result"=>false,"message"=>"el nombre de usuario no puede superar los '.$maxCaracteresUsername.' caracteres");
