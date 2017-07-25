@@ -166,10 +166,9 @@
   <div id="modal-login" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form action="#">
+        <form method="post" onsubmit="iniciodeSesion()">
         <div class="modal-header"></div>
         <div class="modal-body">
-          <form action="#">
             <div class="form-group">
               <label><b>Email</b></label>
               <input class="form-control" type="text" placeholder="Ingrese su email" name="email" required>
@@ -193,6 +192,18 @@
   <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript">
+    function iniciodeSesion(){
+      var email = $("#email").val();
+      var clave = $("#clave").val();
+      $.ajax({
+        data:{"accion":"login","clave":clave,"email":email}
+        method:"post",
+        url:"php/usuarios.php",
+        success:function(data){
+          alert("registro exitoso");
+        }
+      });
+    }
     function registrodeUsuarios(){
       var nombre = $("#nombres").val();
       var apellido = $("#apellidos").val();
@@ -207,7 +218,7 @@
       }
       else{
         $.ajax({
-          data:{"nombre":nombre,"apellido":apellido,"clave":clave,"email":email}
+          data:{"accion":"registro","nombre":nombre,"apellido":apellido,"clave":clave,"email":email}
           method:"post",
           url:"php/usuarios.php",
           success:function(data){
