@@ -78,4 +78,3 @@ function registrodeUsuarios($apellido,$clave,$conexion,$email,$nombre,$username)
     }
   }
 }
-?>

@@ -12,7 +12,7 @@ if(isset($_SESSION['email']) and $_SESSION['estado'] == 'Autenticado') {
 	include('php/productos.php');
 	die();
 } else {
-	include('index.html');
+	include('inicio.php');
 	die();
 };
 ?>
