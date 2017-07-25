@@ -1,18 +1,18 @@
 <?php
 include "conexion.php";
 $accion=$_POST["accion"];
-$clave=  htmlspecialchars(mysqli_real_escape_string($conexion,$_POST["clave"]);
+$clave=  htmlspecialchars(mysqli_real_escape_string($conexion,$_POST["clave"]));
 $maxCaracteresUsername = "20";
 $maxCaracteresPassword = "60";
-$username =  htmlspecialchars(mysqli_real_escape_string($conexion,$_POST["username"]);
+$username =  htmlspecialchars(mysqli_real_escape_string($conexion,$_POST["username"]));
 if(isset($_POST["apellido"])){
-  $nombre =  htmlspecialchars(mysqli_real_escape_string($conexion,$_POST["apellido"]);
+  $apellido =  htmlspecialchars(mysqli_real_escape_string($conexion,$_POST["apellido"]));
 }
 if(isset($_POST["email"])){
-  $email =  htmlspecialchars(mysqli_real_escape_string($conexion,$_POST["email"]);
+  $email =  htmlspecialchars(mysqli_real_escape_string($conexion,$_POST["email"]));
 }
 if(isset($_POST["nombre"])){
-  $nombre =  htmlspecialchars(mysqli_real_escape_string($conexion,$_POST["nombre"]);
+  $nombre =  htmlspecialchars(mysqli_real_escape_string($conexion,$_POST["nombre"]));
 }
 switch ($accion) {
   case 'login':
@@ -41,28 +41,28 @@ function iniciodeSesion($clave,$conexion,$username){
     session_start();
     $_SESSION["username"] = $resultado["username"];
     $_SESSION['estado'] = 'Autenticado';
-    return json_encode(array("result"=>true,"message"=>"bienvenido");
+    return json_encode(array("result"=>true,"message"=>"bienvenido"));
   }
   else{
-    return json_encode(array("result"=>false,"message"=>"los datos son incorrectos");
+    return json_encode(array("result"=>false,"message"=>"los datos son incorrectos"));
   }
 
 }
 
-function registrodeUsuarios($apellido,$clave,$conexion,$email,$nombre,$username){
+function registrodeUsuarios($apellido,$clave,$conexion,$email,$nombre,$maxCaracteresPassword,$maxCaracteresUsername,$username){
 
   //Si los input son de mayor tamaño, se "muere" el resto del código y muestra la respuesta correspondiente
   if(strlen($username) > $maxCaracteresUsername) {
-    return json_encode(array("result"=>false,"message"=>"el nombre de usuario no puede superar los '.$maxCaracteresUsername.' caracteres");
+    return json_encode(array("result"=>false,"message"=>"el nombre de usuario no puede superar los '.$maxCaracteresUsername.' caracteres"));
   }
 
   if(strlen($clave) > $maxCaracteresPassword) {
-  	return json_encode(array("result"=>false,"message"=>"la clave no puede superar los '.$maxCaracteresPassword.' caracteres");
+  	return json_encode(array("result"=>false,"message"=>"la clave no puede superar los '.$maxCaracteresPassword.' caracteres"));
   }
   $username = strtolower($username);
   $consultaUsuarios = mysqli_query($conexion,"SELECT * FROM usuarios WHERE username = '$username'") or die(mysql_error());
   if(mysqli_num_rows($consultaUsuarios)>0){
-    return json_encode(array("result"=>false,"message"=>"el nombre de usuario indicado ya existe");
+    return json_encode(array("result"=>false,"message"=>"el nombre de usuario indicado ya existe"));
   }
   else{
     $aleatorio = aleatoriedad();

@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "1234";
+$password = "";
 $database = "carrito";
 
 $conexion = mysqli_connect($servername,$username,$password,$database);

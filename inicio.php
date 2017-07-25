@@ -137,6 +137,10 @@ require('php/sesiones.php');
           <div class="modal-header"></div>
           <div class="modal-body">
               <div class="form-group">
+                <label><b>Nombre de usuario</b></label>
+                <input class="form-control" type="text" placeholder="Ingrese su nombre de usuario" id="username" name="username" required>
+              </div>
+              <div class="form-group">
                 <label><b>Nombres</b></label>
                 <input class="form-control" type="text" placeholder="Ingrese sus nombres" id="nombres" name="nombres" required>
               </div>
@@ -200,7 +204,7 @@ require('php/sesiones.php');
       var email = $("#email").val();
       var clave = $("#clave").val();
       $.ajax({
-        data:{"accion":"login","clave":clave,"email":email}
+        data:{"accion":"login","clave":clave,"email":email},
         method:"post",
         url:"php/usuarios.php",
         success:function(data){
@@ -209,6 +213,7 @@ require('php/sesiones.php');
       });
     }
     function registrodeUsuarios(){
+      var username = $("#username").val();
       var nombre = $("#nombres").val();
       var apellido = $("#apellidos").val();
       var email = $("#email").val();
@@ -222,11 +227,19 @@ require('php/sesiones.php');
       }
       else{
         $.ajax({
-          data:{"accion":"registro","nombre":nombre,"apellido":apellido,"clave":clave,"email":email}
+          data:{
+                "accion":"registro",
+                "username":username,
+                "nombre":nombre,
+                "apellido":apellido,
+                "clave":clave,
+                "email":email,
+                "username":username
+          },
           method:"post",
           url:"php/usuarios.php",
           success:function(data){
-            alert("registro exitoso");
+            console.log(data);
           }
         });
       }
