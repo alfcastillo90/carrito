@@ -49,32 +49,35 @@ function iniciodeSesion($clave,$conexion,$username){
 
 }
 
-function registrodeUsuarios($apellido,$clave,$conexion,$email,$nombre,$maxCaracteresPassword,$maxCaracteresUsername,$username){
+function registrodeUsuarios($apellido,$clave,$conexion,$email,$maxCaracteresPassword,$maxCaracteresUsername,$nombre,$username){
 
   //Si los input son de mayor tamaño, se "muere" el resto del código y muestra la respuesta correspondiente
   if(strlen($username) > $maxCaracteresUsername) {
-    return json_encode(array("result"=>false,"message"=>"el nombre de usuario no puede superar los '.$maxCaracteresUsername.' caracteres"));
+    echo json_encode(array("result"=>false,"message"=>"el nombre de usuario no puede superar los '.$maxCaracteresUsername.' caracteres"));
   }
 
   if(strlen($clave) > $maxCaracteresPassword) {
-  	return json_encode(array("result"=>false,"message"=>"la clave no puede superar los '.$maxCaracteresPassword.' caracteres"));
+  	echo json_encode(array("result"=>false,"message"=>"la clave no puede superar los '.$maxCaracteresPassword.' caracteres"));
   }
   $username = strtolower($username);
   $consultaUsuarios = mysqli_query($conexion,"SELECT * FROM usuarios WHERE username = '$username'") or die(mysql_error());
   if(mysqli_num_rows($consultaUsuarios)>0){
-    return json_encode(array("result"=>false,"message"=>"el nombre de usuario indicado ya existe"));
+    echo json_encode(array("result"=>false,"message"=>"el nombre de usuario indicado ya existe"));
   }
   else{
+
     $aleatorio = aleatoriedad();
     $valor = "07";
     $salt = "$2y$".$valor."$".$aleatorio."$";
     $clave = crypt($clave, $salt);
-    $query = "INSERT INTO usuarios(apellido,clave,email,nombre) VALUES($apellido,$clave,$conexion,$email,$nombre)";
+    $query = "INSERT INTO usuarios(username,apellido,clave,email,nombre) VALUES('$username','$apellido','$clave','$email','$nombre')";
+ 
     if(mysqli_query($conexion,$query)){
-        return true;
+
+      echo json_encode(array("result"=>true,"message"=>"registro exitoso"));
     }
     else{
-      return false;
+      echo json_encode(array("result"=>false,"message"=>"error en el query de registro"));
     }
   }
 }
