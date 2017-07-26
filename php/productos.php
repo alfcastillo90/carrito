@@ -40,7 +40,7 @@
 					<li class="active"><a href="#">inicio</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-user"></span> su cuenta</a></li>
+					<li><a href="php/logout.php"><span class="glyphicon glyphicon-user"></span> Cerrar sesi&oacute;n</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a></li>
 				</ul>
 			</div>
