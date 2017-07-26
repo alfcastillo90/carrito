@@ -61,9 +61,9 @@
 						echo '<div class="col-md-4" id="'.$id.'">';
 						echo '<div class="panel panel-primary">';
 						echo '<div class="panel-heading">'.$arreglo["nombre"] . '</div>';
-						echo '<div class="panel-body text-center"><img src="img/'.$arreglo["imagen"] . '" class="img-responsive" alt="Image" style="margin: 0 auto;">';
-						echo '<p id="cantidad_en_inventario">'.$arreglo["cantidad_en_inventario"] . '</p>';
+						echo '<div class="panel-body text-center"><img id="imagen-producto" src="img/'.$arreglo["imagen"] . '" class="img-responsive" alt="Image" style="margin: 0 auto;">';
 						echo '<p id="precio_venta"><b>Bs.: '.number_format($arreglo["precio_venta"],2,",",".") . '</b></p>';
+						echo '<input id="cantidad_inventario" value="'.$arreglo["cantidad_inventario"].'" type="hidden"/>';
 						echo '</div>';
 						echo '<div class="panel-footer text-center"><button class="btn btn-success" onclick="abrirModal('.$arreglo["id"] .')">Detalles del producto</button></div>';
 						echo '</div>
@@ -82,20 +82,29 @@
 		</form>
 	</footer>
 	<div id="producto-modal" class="modal fade" role="dialog">
-	    <div class="modal-dialog modal-sm">
+	    <div class="modal-dialog modal-md">
 	        <!-- Modal content-->
 	        <div class="modal-content">
 	            <div class="modal-header">
 	                <button type="button" class="close" data-dismiss="modal">&times;</button>
 	                <h4 class="modal-title">Detalles del producto</h4>
 	            </div>
-	            <div class="modal-body text-center">
-	              	<p>aqui van los detalles del producto</p>
-	            	<img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-	            	<span id="nombre-producto"></span>
-
+	            <div class="modal-body">
+	            <div class="row">
+	            	<div class="col-md-6">
+		            	<img alt="Image" class="img-responsive" id="imagen-modal">
+					</div>
+					<div class="col-md-6">
+		            	<ul class="list-group">
+						  <li class="list-group-item"><span id="nombre-producto"></span></li>
+						  <li class="list-group-item"><span id="modal-precio-venta"></span></li>
+						  <li class="list-group-item">Cantidad:<input id="modal-cantidad" min="1" max="" type="number"></li>
+						</ul>
+					</div>
+				</div>
 	            </div>
 	             <div class="modal-footer">
+	                <button type="button" class="btn btn-success pull-right">Agregar al carrito</button>
 	                <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Cerrar</button>
 	            </div>
 	        </div>
@@ -109,6 +118,9 @@
     		$("#id-producto").val(id);
     		$("#producto-modal").modal();
     		$("#nombre-producto").text($("#"+id+" .panel-heading").text());
+    		$("#modal-precio-venta").text($("#"+id+" #precio_venta").text());
+    		$("#imagen-modal").attr("src",$("#"+id+" #imagen-producto").attr("src"));
+    		$("#modal-cantidad").attr("max",$("#"+id+" #cantidad_inventario").val());
     	}
 
     	function agregarCantidad(cantidad,idProducto){
