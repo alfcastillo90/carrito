@@ -33,13 +33,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Logo</a>
+				<a class="navbar-brand" href="#"></a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">inicio</a></li>
-					<li><a href="#">Productos</a></li>
-					<li><a href="#">Contacto</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#"><span class="glyphicon glyphicon-user"></span> su cuenta</a></li>
@@ -77,7 +75,7 @@
 	<footer class="container-fluid text-center">
 		<p>Carrito Copyleft</p>
 		<form class="form-inline">Recibe ofertas:
-			<input type="email" class="form-control" size="50" placeholder="Email Address">
+			<input type="email" class="form-control" size="50" placeholder="Correo electronico">
 			<button type="button" class="btn btn-danger">Suscribete</button>
 		</form>
 	</footer>
