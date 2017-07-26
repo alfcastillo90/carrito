@@ -60,13 +60,12 @@
 						$id = $arreglo["id"];
 						echo '<div class="col-md-4" id="'.$id.'">';
 						echo '<div class="panel panel-primary">';
-						echo "<div>".$arreglo["id"] . "</div>";
-						echo '<div class="panel-heading">'.$arreglo["descripcion"] . '</div>';
-						echo '<div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">';
+						echo '<div class="panel-heading">'.$arreglo["nombre"] . '</div>';
+						echo '<div class="panel-body text-center"><img src="img/'.$arreglo["imagen"] . '" class="img-responsive" alt="Image" style="margin: 0 auto;">';
 						echo '<p id="cantidad_en_inventario">'.$arreglo["cantidad_en_inventario"] . '</p>';
-						echo '<p id="fecha_registro">Agregado el: '.$arreglo["fecha_registro"] . '</p>';
+						echo '<p id="precio_venta"><b>Bs.: '.number_format($arreglo["precio_venta"],2,",",".") . '</b></p>';
 						echo '</div>';
-						echo '<div class="panel-footer"><button class="btn btn-success" onclick="abrirModal('.$arreglo["id"] .')">Detalles del producto</button></div>';
+						echo '<div class="panel-footer text-center"><button class="btn btn-success" onclick="abrirModal('.$arreglo["id"] .')">Detalles del producto</button></div>';
 						echo '</div>
 				    </div>';
 
