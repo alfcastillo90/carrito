@@ -73,7 +73,9 @@ function registrodeUsuarios($apellido,$clave,$conexion,$email,$maxCaracteresPass
     $query = "INSERT INTO usuarios(username,apellido,clave,email,nombre) VALUES('$username','$apellido','$clave','$email','$nombre')";
  
     if(mysqli_query($conexion,$query)){
-
+      session_start();
+      $_SESSION["username"] = $username;
+      $_SESSION['estado'] = 'Autenticado';
       echo json_encode(array("result"=>true,"message"=>"registro exitoso"));
     }
     else{

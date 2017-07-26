@@ -133,7 +133,7 @@ require('php/sesiones.php');
   <div id="modal-registro" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form method="post" onsubmit="registrodeUsuarios()">
+        <form>
           <div class="modal-header"></div>
           <div class="modal-body">
               <div class="form-group">
@@ -162,7 +162,7 @@ require('php/sesiones.php');
               </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-success">Crear cuenta</button>
+            <button type="button" class="btn btn-success" onclick="registrodeUsuarios()">Crear cuenta</button>
             <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
           </div>
         </form>
@@ -187,7 +187,7 @@ require('php/sesiones.php');
             </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Iniciar sesi&oacute;n</button>
+          <button type="button" class="btn btn-success" >Iniciar sesi&oacute;n</button>
           <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
         </div>
       </form>
@@ -239,7 +239,9 @@ require('php/sesiones.php');
           method:"post",
           url:"php/usuarios.php",
           success:function(data){
-            console.log(data);
+            var info = $.parseJSON(data);
+            alert(info.message);
+            window.location.reload();
           }
         });
       }

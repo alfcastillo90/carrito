@@ -4,7 +4,7 @@
 		<title>Carrito de compra</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 		<style>
 			.navbar {
 			  margin-bottom: 50px;
@@ -102,8 +102,8 @@
 	        </div>
 	    </div>
 	</div>
-	<script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
     <script>
     	function abrirModal(id){
     		console.log(id);
